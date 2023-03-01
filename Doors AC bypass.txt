@@ -1,0 +1,44 @@
+-- Made by Waitone#0001
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source%27)))()
+if game.PlaceId == 6516141723 then
+        OrionLib:MakeNotification({
+            Name = "Error",
+            Content = "Execute in game not in lobby bozo",
+            Time = 2
+        })
+      end
+local DoorsACBypassGui = Instance.new("ScreenGui")
+DoorsACBypassGui.Name = "Doors AC Bypass"
+DoorsACBypassGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+
+local ACBypassButton = Instance.new("TextButton")
+ACBypassButton.Name = "AC Bypass (without noclip)"
+ACBypassButton.Parent = DoorsACBypassGui
+ACBypassButton.Size = UDim2.new(0, 200, 0, 50)
+ACBypassButton.Position = UDim2.new(0.5, -100, 0.2, -25)
+ACBypassButton.Text = "AC bypass (without noclip)"
+ACBypassButton.FontSize = Enum.FontSize.Size24
+
+
+local ACBypassNoclipButton = Instance.new("TextButton")
+ACBypassNoclipButton.Name = "AC Bypass (with noclip)"
+ACBypassNoclipButton.Parent = DoorsACBypassGui
+ACBypassNoclipButton.Size = UDim2.new(0, 200, 0, 50)
+ACBypassNoclipButton.Position = UDim2.new(0.5, -100, 0.4, -25)
+ACBypassNoclipButton.Text = "AC bypass (with noclip)"
+ACBypassNoclipButton.FontSize = Enum.FontSize.Size24
+
+
+ACBypassButton.Activated:Connect(function()
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+end)
+
+
+ACBypassNoclipButton.Activated:Connect(function()
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+end)
