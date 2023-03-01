@@ -1,6 +1,6 @@
 -- Made by Waitone#0001
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source%27)))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 if game.PlaceId == 6516141723 then
         OrionLib:MakeNotification({
             Name = "Error",
