@@ -61,3 +61,9 @@ local itemLocatorToggle = gui:AddToggle("Key ESP", function(toggled)
         gui.Container:ClearAllChildren()
     end
 end)
+
+
+local slider = gui.addSlider("Speed", 0, 30, 5)
+slider.changed:connect(function(value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
