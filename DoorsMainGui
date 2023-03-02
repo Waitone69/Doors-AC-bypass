@@ -11,7 +11,7 @@ if game.PlaceId == 6516141723 then
       end
 
 local gui = Orion:CreateGui({
-    Title = "Doors AC bypass and esp",
+    Title = "Doors Main Gui",
     ThemeColor = Color3.fromRGB(0, 255, 255),
 })
 
