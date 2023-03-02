@@ -34,7 +34,7 @@ local acBypassWithNoClipButton = gui:AddButton("AC Bypass (With Noclip)", functi
     end)
 end)
 
-local itemLocatorToggle = gui:AddToggle("Item Locator", function(toggled)
+local itemLocatorToggle = gui:AddToggle("Key ESP", function(toggled)
     if toggled then
         
         game:GetService("RunService").Stepped:Connect(function()
