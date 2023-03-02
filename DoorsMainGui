@@ -2,6 +2,13 @@
 
 local Orion = loadstring(game:HttpGet("https://raw.githubusercontent.com/oriin/Orion/main/library.lua"))()
 
+if game.PlaceId == 6516141723 then
+        OrionLib:MakeNotification({
+            Name = "Error",
+            Content = "Execute in game not in lobby bozo",
+            Time = 2
+        })
+      end
 
 local gui = Orion:CreateGui({
     Title = "Doors AC bypass and esp",
