@@ -1,0 +1,56 @@
+-- Made by Waitone#0001
+
+local Orion = loadstring(game:HttpGet("https://raw.githubusercontent.com/oriin/Orion/main/library.lua"))()
+
+
+local gui = Orion:CreateGui({
+    Title = "Doors AC bypass and esp",
+    ThemeColor = Color3.fromRGB(0, 255, 255),
+})
+
+
+local acBypassNoClipButton = gui:AddButton("AC Bypass (without Noclip)", function()
+    
+    game.Players.LocalPlayer.Character.Humanoid.Swimming = true
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+end)
+
+local acBypassWithNoClipButton = gui:AddButton("AC Bypass (With Noclip)", function()
+    
+    game.Players.LocalPlayer.Character.Humanoid.Swimming = true
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+    game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+    game:GetService("RunService").Stepped:Connect(function()
+        if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+        end
+    end)
+end)
+
+local itemLocatorToggle = gui:AddToggle("Item Locator", function(toggled)
+    if toggled then
+        
+        game:GetService("RunService").Stepped:Connect(function()
+            for _, item in pairs(game.Workspace:GetDescendants()) do
+                if item.Name == "ItemNameHere" then
+                    local screenPos, onScreen = game.Workspace.CurrentCamera:WorldToScreenPoint(item.Position)
+                    if onScreen then
+                        
+                        local label = Instance.new("TextLabel")
+                        label.Text = item.Name
+                        label.TextColor3 = Color3.new(1, 1, 1)
+                        label.Position = UDim2.new(0, screenPos.X, 0, screenPos.Y)
+                        label.Parent = gui.Container
+
+                        
+                        game:GetService("Debris"):AddItem(label, 2) -- 2 saniye
+                    end
+                end
+            end
+        end)
+    else
+        
+        game:GetService("RunService"):UnbindFromRenderStep("ItemLocator")
+        gui.Container:ClearAllChildren()
+    end
+end)
